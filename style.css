@@ -12,11 +12,14 @@ header {
 
 article {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  gap: 1em;
 }
 
 .tabuleiro {
-  height: 100%;
+  width: fit-content;
   aspect-ratio: 1;
 }
 
