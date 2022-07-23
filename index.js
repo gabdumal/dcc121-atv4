@@ -6,5 +6,13 @@ const embarcacaoEstado = {
 
 // Captura os elementos do DOM
 const embarcacao = document.querySelector("#embarcacao");
+const margemEsq = document.querySelector("#margemEsq");
+const margemDir = document.querySelector("#margemDir");
 
-console.log(embarcacao);
+// Ouvintes
+embarcacao.addEventListener("click", clickListenerEmbarcacao);
+function clickListenerEmbarcacao() {
+  console.log(embarcacao);
+  console.log(margemEsq);
+  console.log(margemDir);
+}
