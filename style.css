@@ -70,10 +70,19 @@ article {
   margin: 0 0.25em;
 }
 
+.carga {
+  display: flex;
+}
+
 .personagem {
   font-size: calc(3em + 1vw);
+  text-align: center;
 }
 
 .espaco > .personagem {
   margin-bottom: 5%;
+}
+
+#fazendeiro {
+  letter-spacing: 2px;
 }
