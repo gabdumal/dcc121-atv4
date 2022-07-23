@@ -26,6 +26,19 @@ for (const produto of produtos) {
 }
 function clickListenerProduto(event) {
   const produto = event.target;
-  const carga = document.querySelector("#carga");
-  carga.appendChild(produto);
+  const valorProduto = produto.textContent;
+  // Insere produto na embarcação
+  if (embarcacaoEstado.carga === "") {
+    embarcacaoEstado.carga = valorProduto;
+
+    const espacoProduto = produto.parentElement;
+    const carga = document.querySelector("#carga");
+    carga.appendChild(produto);
+
+    // Leva espaço vazio para o final da margem
+    espacoProduto.parentElement.appendChild(espacoProduto);
+  } // Remove produto da embarcação
+  else if (embarcacaoEstado.carga === valorProduto) {
+    console.log(embarcacaoEstado);
+  }
 }
