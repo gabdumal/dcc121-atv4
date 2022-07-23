@@ -7,6 +7,7 @@ const embarcacaoEstado = {
 // Captura os elementos do DOM
 const embarcacao = document.querySelector("#embarcacao");
 const fazendeiro = embarcacao.firstElementChild.firstElementChild;
+const produtos = document.querySelectorAll(".produto");
 
 // Ouvintes
 fazendeiro.addEventListener("click", clickListenerFazendeiro);
@@ -18,4 +19,8 @@ function clickListenerFazendeiro() {
 
   const margem = document.querySelector("#margem" + embarcacaoEstado.margem);
   margem.firstElementChild.appendChild(embarcacao);
+}
+
+for (const produto of produtos) {
+  console.log(produto);
 }
