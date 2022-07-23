@@ -3,6 +3,10 @@ const embarcacaoEstado = {
   margem: "Esq",
   carga: "",
 };
+const margens = {
+  Esq: ["🐺", "🐏", "🥬"],
+  Dir: [],
+};
 
 // Captura os elementos do DOM
 const embarcacao = document.querySelector("#embarcacao");
@@ -19,6 +23,8 @@ function clickListenerFazendeiro() {
 
   const margem = document.querySelector("#margem" + embarcacaoEstado.margem);
   margem.firstElementChild.appendChild(embarcacao);
+
+  verificaVitoria();
 }
 
 for (const produto of produtos) {
@@ -34,22 +40,39 @@ function clickListenerProduto(event) {
     "margem" + embarcacaoEstado.margem ===
       produto.parentElement.parentElement.id
   ) {
+    // Atualiza estado
     embarcacaoEstado.carga = valorProduto;
+    let indiceProduto = margens[embarcacaoEstado.margem].indexOf(valorProduto);
+    if (indiceProduto !== -1) {
+      margens[embarcacaoEstado.margem].splice(indiceProduto, 1);
+    }
 
     const espacoProduto = produto.parentElement;
     const carga = document.querySelector("#carga");
-    carga.appendChild(produto);
 
+    carga.appendChild(produto);
     // Leva espaço vazio para o final da margem
     espacoProduto.parentElement.appendChild(espacoProduto);
   } // Remove produto da embarcação
   else if (embarcacaoEstado.carga === valorProduto) {
     const margem = document.querySelector("#margem" + embarcacaoEstado.margem);
     const espacoProduto = margem.lastElementChild;
-    espacoProduto.appendChild(produto);
-    embarcacaoEstado.carga = "";
 
+    espacoProduto.appendChild(produto);
     // Leva último espaço para a segunda posição
     margem.insertBefore(espacoProduto, margem.children[1]);
+
+    // Atualiza estado
+    embarcacaoEstado.carga = "";
+    margens[embarcacaoEstado.margem].push(valorProduto);
   }
+
+  console.log(margens);
+}
+
+function verificaVitoria() {
+  const margens = document.querySelectorAll(".margem");
+
+  //   for (const margem of margens) {
+  //   }
 }
