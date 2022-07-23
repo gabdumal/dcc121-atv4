@@ -33,3 +33,9 @@ article {
   height: 100%;
   background-color: hsl(84, 100%, 50%);
 }
+
+.barco {
+  width: 100%;
+  height: 100%;
+  border-bottom: 0.5em;
+}
