@@ -1,26 +1,24 @@
 // Estado
 const embarcacaoEstado = {
-  margem: "esq",
+  margem: "Esq",
   carga: "",
 };
 
 // Captura os elementos do DOM
 const embarcacao = document.querySelector("#embarcacao");
 const fazendeiro = embarcacao.firstElementChild.firstElementChild;
-const margemEsq = document.querySelector("#margemEsq");
-const margemDir = document.querySelector("#margemDir");
+// const margemEsq = document.querySelector("#margemEsq");
+// const margemDir = document.querySelector("#margemDir");
 
 // Ouvintes
 fazendeiro.addEventListener("click", clickListenerFazendeiro);
 function clickListenerFazendeiro() {
   // Troca de margem
-  embarcacaoEstado.margem === "esq"
-    ? (embarcacaoEstado.margem = "dir")
-    : (embarcacaoEstado.margem = "esq");
+  embarcacaoEstado.margem === "Esq"
+    ? (embarcacaoEstado.margem = "Dir")
+    : (embarcacaoEstado.margem = "Esq");
 
-  console.log(embarcacaoEstado);
-  console.log(fazendeiro);
-  //   console.log(embarcacao);
-  //   console.log(margemEsq);
-  //   console.log(margemDir);
+  const margem = document.querySelector("#margem" + embarcacaoEstado.margem);
+
+  console.log(margem);
 }
