@@ -39,6 +39,12 @@ function clickListenerProduto(event) {
     espacoProduto.parentElement.appendChild(espacoProduto);
   } // Remove produto da embarcação
   else if (embarcacaoEstado.carga === valorProduto) {
-    console.log(embarcacaoEstado);
+    const margem = document.querySelector("#margem" + embarcacaoEstado.margem);
+    const espacoProduto = margem.lastElementChild;
+    espacoProduto.appendChild(produto);
+    embarcacaoEstado.carga = "";
+
+    // Leva último espaço para a segunda posição
+    margem.insertBefore(espacoProduto, margem.children[1]);
   }
 }
