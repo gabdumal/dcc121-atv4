@@ -43,12 +43,22 @@ article {
 
 .embarcacao {
   display: flex;
-  justify-content: center;
-  align-items: flex-end;
+  flex-direction: column;
+  align-items: center;
 }
 
 .barco {
   width: 100%;
   aspect-ratio: 10/1;
   background-color: hsl(25, 76%, 31%);
+}
+
+.passageiros {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 95%;
+}
+
+.personagem {
+  font-size: 2em;
 }
