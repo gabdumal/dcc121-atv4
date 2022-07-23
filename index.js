@@ -27,8 +27,13 @@ for (const produto of produtos) {
 function clickListenerProduto(event) {
   const produto = event.target;
   const valorProduto = produto.textContent;
+
   // Insere produto na embarcação
-  if (embarcacaoEstado.carga === "") {
+  if (
+    embarcacaoEstado.carga === "" &&
+    "margem" + embarcacaoEstado.margem ===
+      produto.parentElement.parentElement.id
+  ) {
     embarcacaoEstado.carga = valorProduto;
 
     const espacoProduto = produto.parentElement;
