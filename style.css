@@ -51,10 +51,6 @@ article {
   background-color: hsl(84, 100%, 50%);
 }
 
-.espaco > div {
-  padding: 5%;
-}
-
 .embarcacao {
   display: flex;
   flex-direction: column;
@@ -62,7 +58,7 @@ article {
 }
 
 .barco {
-  width: 100%;
+  width: 95%;
   aspect-ratio: 10/1;
   background-color: hsl(25, 76%, 31%);
 }
@@ -70,7 +66,8 @@ article {
 .passageiros {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  width: fit-content;
+  width: max-content;
+  margin: 0 0.25em;
 }
 
 .personagem {
