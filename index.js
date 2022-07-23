@@ -120,4 +120,34 @@ function clickListenerRecomecar() {
   mensagem.classList.remove("vitoria");
   mensagem.classList.remove("derrota");
   mensagem.classList.add("invisivel");
+
+  // Elementos do DOM
+  const margens = document.querySelectorAll(".margem");
+  const espacos = document.querySelectorAll(".espaco");
+  for (const espaco of espacos) {
+    espaco.remove();
+  }
+  let margemAux = 0;
+  for (const margem of margens) {
+    for (let aux = 0; aux < 4; aux++) {
+      const espaco = document.createElement("div");
+      espaco.classList.add("espaco");
+      if (margemAux === 0) {
+        if (aux > 0) {
+          espaco.appendChild(produtos[aux - 1]);
+        } else {
+          espaco.appendChild(embarcacao);
+        }
+      }
+      margem.appendChild(espaco);
+    }
+    margemAux++;
+  }
+
+  // Estado
+  embarcacaoEstado.margem = "Esq";
+  embarcacaoEstado.carga = "";
+  produtosEstado.Esq = ["🐺", "🐏", "🥬"];
+  produtosEstado.Barco = [];
+  produtosEstado.Dir = [];
 }
