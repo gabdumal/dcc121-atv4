@@ -13,9 +13,15 @@ const produtosEstado = {
 const embarcacao = document.querySelector("#embarcacao");
 const fazendeiro = embarcacao.firstElementChild.firstElementChild;
 const produtos = document.querySelectorAll(".produto");
+const recomecar = document.querySelector("#recomecar");
 
 // Ouvintes
 fazendeiro.addEventListener("click", clickListenerFazendeiro);
+for (const produto of produtos) {
+  produto.addEventListener("click", clickListenerProduto);
+}
+recomecar.addEventListener("click", clickListenerRecomecar);
+
 function clickListenerFazendeiro() {
   // Troca de margem
   embarcacaoEstado.margem === "Esq"
@@ -28,9 +34,6 @@ function clickListenerFazendeiro() {
   verificaVitoria();
 }
 
-for (const produto of produtos) {
-  produto.addEventListener("click", clickListenerProduto);
-}
 function clickListenerProduto(event) {
   const produto = event.target;
   const valorProduto = produto.textContent;
@@ -106,4 +109,15 @@ function verificaVitoriaAux() {
     aux = "Dir";
   }
   return 0;
+}
+
+function clickListenerRecomecar() {
+  // Estilo de fim de jogo
+  const tabuleiro = document.querySelector("#tabuleiro");
+  tabuleiro.classList.remove("fim");
+  const mensagem = document.querySelector("#mensagem");
+  mensagem.textContent = "";
+  mensagem.classList.remove("vitoria");
+  mensagem.classList.remove("derrota");
+  mensagem.classList.add("invisivel");
 }
