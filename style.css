@@ -42,6 +42,7 @@ article {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  align-items: center;
   width: 100%;
   height: 100%;
   background-color: hsl(84, 100%, 50%);
@@ -71,4 +72,8 @@ article {
 
 .personagem {
   font-size: calc(3em + 1vw);
+}
+
+.espaco > .personagem {
+  margin-bottom: 5%;
 }
