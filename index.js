@@ -3,8 +3,9 @@ const embarcacaoEstado = {
   margem: "Esq",
   carga: "",
 };
-const margens = {
+const produtosEstado = {
   Esq: ["🐺", "🐏", "🥬"],
+  Barco: "",
   Dir: [],
 };
 
@@ -24,7 +25,8 @@ function clickListenerFazendeiro() {
   const margem = document.querySelector("#margem" + embarcacaoEstado.margem);
   margem.firstElementChild.appendChild(embarcacao);
 
-  verificaVitoria();
+  //   console.log(verificaVitoria());
+  console.log(produtosEstado);
 }
 
 for (const produto of produtos) {
@@ -42,10 +44,12 @@ function clickListenerProduto(event) {
   ) {
     // Atualiza estado
     embarcacaoEstado.carga = valorProduto;
-    let indiceProduto = margens[embarcacaoEstado.margem].indexOf(valorProduto);
+    let indiceProduto =
+      produtosEstado[embarcacaoEstado.margem].indexOf(valorProduto);
     if (indiceProduto !== -1) {
-      margens[embarcacaoEstado.margem].splice(indiceProduto, 1);
+      produtosEstado[embarcacaoEstado.margem].splice(indiceProduto, 1);
     }
+    produtosEstado.Barco = valorProduto;
 
     const espacoProduto = produto.parentElement;
     const carga = document.querySelector("#carga");
@@ -64,15 +68,14 @@ function clickListenerProduto(event) {
 
     // Atualiza estado
     embarcacaoEstado.carga = "";
-    margens[embarcacaoEstado.margem].push(valorProduto);
+    produtosEstado[embarcacaoEstado.margem].push(valorProduto);
+    produtosEstado.Barco = "";
   }
-
-  console.log(margens);
 }
 
 function verificaVitoria() {
   const margens = document.querySelectorAll(".margem");
-
-  //   for (const margem of margens) {
-  //   }
+  if (produtosEstado.Dir.length === 3) return 1;
+  for (const margem of margens) {
+  }
 }
