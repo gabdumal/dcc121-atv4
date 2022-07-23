@@ -22,5 +22,9 @@ function clickListenerFazendeiro() {
 }
 
 for (const produto of produtos) {
+  produto.addEventListener("click", clickListenerProduto);
   console.log(produto);
+}
+function clickListenerProduto(event) {
+  console.log(event.target);
 }
