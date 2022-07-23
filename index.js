@@ -25,7 +25,7 @@ function clickListenerFazendeiro() {
   const margem = document.querySelector("#margem" + embarcacaoEstado.margem);
   margem.firstElementChild.appendChild(embarcacao);
 
-  console.log(verificaVitoriaAux());
+  verificaVitoria();
 }
 
 for (const produto of produtos) {
@@ -70,7 +70,13 @@ function clickListenerProduto(event) {
     produtosEstado[embarcacaoEstado.margem].push(valorProduto);
     produtosEstado.Barco.pop();
   }
-  console.log(verificaVitoriaAux());
+  verificaVitoria();
+}
+
+function verificaVitoria() {
+  const situacao = verificaVitoriaAux();
+  if (situacao === -1) console.log("Derrota");
+  else if (situacao === 1) console.log("Vitória");
 }
 
 function verificaVitoriaAux() {
