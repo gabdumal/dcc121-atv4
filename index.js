@@ -75,8 +75,19 @@ function clickListenerProduto(event) {
 
 function verificaVitoria() {
   const situacao = verificaVitoriaAux();
-  if (situacao === -1) console.log("Derrota");
-  else if (situacao === 1) console.log("Vitória");
+  if (situacao !== 0) {
+    const tabuleiro = document.querySelector("#tabuleiro");
+    tabuleiro.classList.add("fim");
+    const mensagem = document.querySelector("#mensagem");
+    if (situacao === 1) {
+      mensagem.textContent = "Você venceu!";
+      mensagem.classList.add("vitoria");
+    } else {
+      mensagem.textContent = "Fim de jogo!";
+      mensagem.classList.add("derrota");
+    }
+    mensagem.classList.remove("invisivel");
+  }
 }
 
 function verificaVitoriaAux() {

@@ -106,3 +106,7 @@ article {
 .derrota {
   background-color: hsla(0, 100%, 50%, 0.15);
 }
+
+.invisivel {
+  display: none;
+}
