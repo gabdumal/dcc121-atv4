@@ -28,8 +28,8 @@ function clickListenerFazendeiro() {
     ? (embarcacaoEstado.margem = "Dir")
     : (embarcacaoEstado.margem = "Esq");
 
-  const margem = document.querySelector("#margem" + embarcacaoEstado.margem);
-  margem.firstElementChild.appendChild(embarcacao);
+  const ladoRio = document.querySelector("#rio" + embarcacaoEstado.margem);
+  ladoRio.appendChild(embarcacao);
 
   verificaVitoria();
 }
@@ -65,8 +65,8 @@ function clickListenerProduto(event) {
     const espacoProduto = margem.lastElementChild;
 
     espacoProduto.appendChild(produto);
-    // Leva último espaço para a segunda posição
-    margem.insertBefore(espacoProduto, margem.children[1]);
+    // Leva último espaço para a primeira posição
+    margem.insertBefore(espacoProduto, margem.children[0]);
 
     // Atualiza estado
     embarcacaoEstado.carga = "";
@@ -124,23 +124,21 @@ function clickListenerRecomecar() {
   // Elementos do DOM
   const margens = document.querySelectorAll(".margem");
   const espacos = document.querySelectorAll(".espaco");
+  const ladoRioEsq = document.querySelector("#rioEsq");
   for (const espaco of espacos) {
     espaco.remove();
   }
   let margemAux = 0;
   for (const margem of margens) {
-    for (let aux = 0; aux < 4; aux++) {
+    for (let aux = 0; aux < 3; aux++) {
       const espaco = document.createElement("div");
       espaco.classList.add("espaco");
       if (margemAux === 0) {
-        if (aux > 0) {
-          espaco.appendChild(produtos[aux - 1]);
-        } else {
-          espaco.appendChild(embarcacao);
-        }
+        espaco.appendChild(produtos[aux]);
       }
       margem.appendChild(espaco);
     }
+    ladoRioEsq.appendChild(embarcacao);
     margemAux++;
   }
 
