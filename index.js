@@ -142,7 +142,7 @@ function verificaVitoriaAux() {
   let margens = [[...produtosEstado.Esq], [...produtosEstado.Dir]];
   let aux = "Esq";
   for (const margem of margens) {
-    if (aux != embarcacaoEstado.margem && margem.length === 2) {
+    if (aux != embarcacaoEstado.margem) {
       if (
         (margem.includes("🐺") && margem.includes("🐏")) ||
         (margem.includes("🥬") && margem.includes("🐏"))
