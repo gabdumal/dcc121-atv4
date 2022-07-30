@@ -37,13 +37,10 @@ function clickListenerFazendeiro() {
 function clickListenerProduto(event) {
   const produto = event.target;
   const valorProduto = produto.textContent;
+  const indice = produtosEstado[embarcacaoEstado.margem].indexOf(valorProduto);
 
   // Insere produto na embarcação
-  if (
-    embarcacaoEstado.carga === "" &&
-    "margem" + embarcacaoEstado.margem ===
-      produto.parentElement.parentElement.id
-  ) {
+  if (embarcacaoEstado.carga === "" && indice !== -1) {
     insereProduto(produto, valorProduto);
   } // Remove produto da embarcação
   else if (embarcacaoEstado.carga === valorProduto) {
